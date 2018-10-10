@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+body{
+  margin: 0;
+}
+
+.soso-header{
+  height: 100px;
+  width: 100%;
+  border-bottom: 1px solid black;
+  position: fixed !important;
+  background-color: white;
+  z-index: 100;}

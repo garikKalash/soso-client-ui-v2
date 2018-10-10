@@ -1,20 +1,41 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div id="header" class="ui-g soso-header">
+  <div class="ui-g-12 ui-md-7">
+    <div class="ui-g">
+     <div class="ui-g-12 ui-md-4">
+      <img src="../assets/soso-client-start-logo.png" style="margin-left: 25%; width: 30%;height: 100%;"/>
+     </div>
+     <div class="ui-g-12 ui-md-8">
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input type="text" placeholder="{{'Search' | translate}}" aria-label="translatedName"
+                 matInput [formControl]="serviceAutoCompleteControl" [matAutocomplete]="auto" [(ngModel)]="selectedService">
+          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" [displayWith]="displayFn">
+            <mat-option *ngFor="let _service of services" [value]="_service">
+              {{_service.translatedName}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+     </div>
+    </div>
+  </div>
+  <div class="ui-g-12 ui-md-4">
+    <div style="float: right; margin-right: 6%;  margin-top: 1%;">
+      <i class="fa fa-map-marker" aria-hidden="true" style="font-size: 3em; color: #484848"></i>
+    </div>
+  </div>
+  <div class="ui-g-12 ui-md-1">
+    <div style="margin-top: 11%;">
+      <p-dropdown [options]="i18nService.supportedLanguages"  [style]="{'width':'90px'}" [(ngModel)] = "i18nService.selectedLang" (onChange)="selectLanguage()">
+        <ng-template let-lang pTemplate="item">
+          <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
+            <img src="{{lang?.flagpath}}" style="width:24px;position:absolute;top:1px;left:5px"/>
+            <div style="font-size:14px;float:right;margin-top:4px">{{lang?.label}}</div>
+          </div>
+        </ng-template>
+      </p-dropdown>
+    </div>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<router-outlet></router-outlet>
 

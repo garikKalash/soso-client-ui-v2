@@ -1,0 +1,21 @@
+<div style="padding-top: 10%;margin-left: 2%; margin-right: 5%; ">
+  <div class="ui-g">
+    <div class="ui-g-12 ui-md-4">
+      <mat-grid-list cols="3">
+        <mat-grid-tile
+          *ngFor="let service of services" [rowspan]="1">
+          <div class="service-img service-image-keeper" (click)="seePartners(service.id)">
+            <img src="{{servicePhoto(service.id)}}" alt="" class="service-img"/>
+            <div class="service-title">{{service.translatedName}}</div>
+            <div class="hover-on-partner-image-content">
+            </div>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+    <div class="ui-g-12 ui-md-8">
+        sdfsdf
+    </div>
+  </div>
+
+</div>
